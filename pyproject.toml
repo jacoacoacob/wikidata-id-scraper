@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "wikidata-id-scraper"
+version = "0.1.0"
+description = ""
+authors = ["Jacoacoacob <jacoacoacob@protonmail.com>"]
+readme = "README.md"
+packages = [{include = "wikidata_id_scraper"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+
+[tool.poetry.scripts]
+doit = "wikidata_id_scraper:main"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
