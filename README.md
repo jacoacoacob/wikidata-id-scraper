@@ -21,4 +21,4 @@ This project relies on [Poetry](https://python-poetry.org/docs/) to execute scri
    This will create a new CSV file called `sandbox-results.csv` in the project root containing the author names, the URL for the page downloaded by `fetch-wikipedia-pages`, and the Wikidata ID found on that page (if present) _and_ the Wikidata URL (again, if ID was found).
 
 
-> **The code looks for author names in a column called "author_names". If it can't find that column, it won't work.**
+**_NOTE_: The code looks for author names in a column called "author_names". If it can't find that column, it won't work.**
