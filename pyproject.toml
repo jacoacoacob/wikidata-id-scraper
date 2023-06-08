@@ -11,7 +11,8 @@ python = "^3.10"
 requests = "^2.31.0"
 
 [tool.poetry.scripts]
-doit = "wikidata_id_scraper:main"
+fetch-wikipedia-pages = "wikidata_id_scraper:fetch_wikipedia_pages"
+get-wikidata-ids = "wikidata_id_scraper:get_wikidata_ids"
 
 
 [build-system]
