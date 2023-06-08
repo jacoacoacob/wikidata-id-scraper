@@ -8,9 +8,8 @@ from typing import List
 HTML_DIR = os.path.abspath("html")
 
 
-def read_author_html(author_name):
-    with open(HTML_DIR + "/" + author_name + ".html", "r") as f:
-        return f.read()
+def get_author_html_path(author: dict):
+    return f"{HTML_DIR}/{author.get('author_name')}.html"
 
 
 def get_author_names_and_urls() -> List[dict]:
@@ -42,10 +41,9 @@ def fetch_wikipedia_pages():
 
     for index, author in enumerate(authors):
         print(f"fetching {index + 1} of {len(authors)}")
-        author_name = author.get("author_name")
         url = author.get("url")
         response = requests.get(url)
-        with open(HTML_DIR + "/" + author_name + ".html", "w") as f:
+        with open(get_author_html_path(author), "w") as f:
             f.write(response.text)
 
 
@@ -55,8 +53,11 @@ def get_wikidata_ids():
     authors_and_wikidata_ids = []
 
     for author in authors:
-        html = read_author_html(author.get("author_name"))
+        with open(get_author_html_path(author), "r") as f:
+            html = f.read()
+
         match = re.search(r"Special:EntityPage/(Q\d+)\"", html)
+
         if match:
             wikidata_id = match.group(1)
             author.update({
