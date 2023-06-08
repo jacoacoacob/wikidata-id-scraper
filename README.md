@@ -17,5 +17,4 @@ This project relies on [Poetry](https://python-poetry.org/docs/) to execute scri
    ```bash
    CSV_DATA=path/to/author/name/csv poetry run get-wikidata-ids
    ```
-   This will create a new CSV file called `sandbox-results.csv` in the project root containing the author names,
-   the URL for the page downloaded by `fetch-wikipedia-pages`, and the Wikidata ID found on that page (if present).
+   This will create a new CSV file called `sandbox-results.csv` in the project root containing the author names, the URL for the page downloaded by `fetch-wikipedia-pages`, and the Wikidata ID found on that page (if present) _and_ the Wikidata URL (again, if ID was found).

@@ -58,9 +58,16 @@ def get_wikidata_ids():
         html = read_author_html(author.get("author_name"))
         match = re.search(r"Special:EntityPage/(Q\d+)\"", html)
         if match:
-            author.update({ "wikidata_id": match.group(1) })
+            wikidata_id = match.group(1)
+            author.update({
+                "wikidata_id": wikidata_id,
+                "wikidata_url": f"https://www.wikidata.org/wiki/{wikidata_id}"
+            })
         else:
-            author.update({ "wikidata_id": None })
+            author.update({
+                "wikidata_id": None,
+                "wikidata_url": None,
+            })
         authors_and_wikidata_ids.append(author)
     
     with open("sandbox-results.csv", "w") as f:
